@@ -13,14 +13,19 @@ import StorageDispatcher from 'common/data/protocols/storage'
 import ImageService from 'media/domain/services/ImageService'
 import ImageServiceImpl from 'media/data/services/ImageService'
 import TMDBHttpManager from 'common/infrastructure/TMDBHttpManager'
+import TraktShowRepository from 'media/data/repositories/TraktShowRepository'
+import ShowRepository from 'media/domain/repositories/ShowRepository'
+import GetTrendingShowsUseCase from 'media/domain/useCases/getTrendingShows'
 
 const container = new Container()
 
 // use cases
 container.bind<GetTrendingMoviesUseCase>('GetTrendingMoviesUseCase').to(GetTrendingMoviesUseCase)
+container.bind<GetTrendingShowsUseCase>('GetTrendingShowsUseCase').to(GetTrendingShowsUseCase)
 
 // repositories
 container.bind<MovieRepository>('MovieRepository').to(TraktMovieRepository)
+container.bind<ShowRepository>('ShowRepository').to(TraktShowRepository)
 
 // services
 container.bind<ConfigService>('ConfigService').to(ConfigServiceImpl)

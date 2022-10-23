@@ -1,4 +1,3 @@
-import { ComputerDesktopIcon } from '@heroicons/react/24/outline'
 import HttpManager from 'common/data/protocols/http'
 import ConfigService from 'common/domain/services/ConfigService'
 import { inject, injectable } from 'inversify'
@@ -51,7 +50,7 @@ class TraktMovieRepository implements MovieRepository {
 		return movies
 	}
 	private async getImage(tmdbid: string) {
-		return this.imagesService.getImages(tmdbid)
+		return this.imagesService.getImages(tmdbid, 'movie')
 	}
 }
 
